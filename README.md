@@ -1,15 +1,25 @@
-# BlockChainBasic - �u���b�N�`�F�[����w�Z Bronze�R�[�X�u�`�Ɋւ��鉉�K
+# ブロックチェーン大学校 Bronzeコース講義に関する演習
 
-related Block Chain University Bronze Course
+ブロックチェーン大学校 Bronzeコース @May-June 2018 において受講、演習したもの
 
-�u���b�N�`�F�[����w�Z Bronze�R�[�X @May-June 2018 �ɂ����Ď�u�A���K�����L�^���c������
+## Envirionment
 
+- developped: 
+
+  |item |ver. |
+  |:---:|:---:|
+  |language|Python 3.6|
+  | IDE | VSCode 1.2 |  
+  | OS  | Windows 10 | 
+
+- tested:
+
+  same as above
 
 ## misc
 
-### �A���P�[�g�y�щۑ�ւ̃����N�W
+### アンケート及び課題へのリンク集
 
-- �A���P�[�g (�S�񋤒ʁA�����񓊍e�\)
+- アンケート (全回共通、複数回投稿可能)
 
 <https://docs.google.com/forms/d/e/1FAIpQLScbtaqJ4-HjE7fUQls9iuDMG5q5H-s3_LsgeXYHh0conO8XdQ/viewform>
-
