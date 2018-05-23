@@ -1,0 +1,56 @@
+
+# BlockChain University #2 ビットコインにおける暗号学～ハッシュ関数と楕円曲線～
+
+## exercise
+
+# 1. 任意のデータ(D)に下記のハッシュ関数をそれぞれ掛ける。
+# sha1(D), sha256(D), sha512(D), sha256(sha256(D)), ripemd160(D), ripemd160(sha256(D))
+#
+
+# 2. 任意のデータ(D)をbase58checkでエンコーディングする。
+# デコードも行って、チェックサムが一致していることも確認する。
+
+>py base58check.py "example data"
+Data : example data
+Base58Check :  b'DXjqxEXcqRyEsbyWmsG2a8'
+Decode result :  b'example data'  has same checksum
+
+>py base58check.py "example data"
+Data : example data
+Base58Check :  b'DXjqxEXcqRyEsbyWmsG2a8'
+Decode result :  b'example data'  => same checksum
+
+>py base58check.py "example data 1"
+Data : example data 1
+Base58Check :  b'5D71bmikb468yPvud1vS8qLuk'
+Decode result :  b'example data 1'  => same checksum
+
+>py base58check.py "example data 2"
+Data : example data 2
+Base58Check :  b'5D71bmikb468yPvud1vYLXbbH'
+Decode result :  b'example data 2'  => same checksum
+
+>py base58check.py "example data 3"
+Data : example data 3
+Base58Check :  b'5D71bmikb468yPvud1ve55ADa'
+Decode result :  b'example data 3'  => same checksum
+
+>py base58check.py "example data 4"
+Data : example data 4
+Base58Check :  b'5D71bmikb468yPvud1vnv9D2Q'
+Decode result :  b'example data 4'  => same checksum
+
+
+# 3. ECDSAのsecp256k1曲線を用いて秘密鍵を生成し、そこから公開鍵を算出する。
+#
+# 4. 3番の秘密鍵を用いて任意のデータ(D)を署名し、公開鍵で署名を検証する
+
+>py secp256k1sign.py
+private key : 6100514927445be29355f4cc3b81f65057f4d502ed62a6fbab81feaae820ef75
+public key : fd43a1611e1cf2c4ef9f108b32d64332a61a1891334e855831b12247bb9269c25a29d81c87c09ccd843529e0b8c3280efbd3d165002577701e3f91da4e7ea67c
+verification result : True
+
+>py secp256k1sign.py
+private key : d476de1e1b1d96e0b360b0a337e1ce0171fb59ee6e819415e5e27ece9ad85035
+public key : bcc1fa7a1d3e661daaa7bdc70663a2693fe930e04e60da014a6f93a8b79383e333be2dca472ee0f4b9a3ac4616702e534fc978e392f2e56e078c6823b10d7a48
+verification result : True
