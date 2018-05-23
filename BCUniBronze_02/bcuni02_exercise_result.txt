@@ -7,6 +7,28 @@
 # sha1(D), sha256(D), sha512(D), sha256(sha256(D)), ripemd160(D), ripemd160(sha256(D))
 #
 
+>py hashfunc.py
+input Data :
+example data to be hashed
+Data D : example data to be hashed
+sha1(D) : c9e38c7dd778cdeffcdff7188c1a4c4d3c767e3b
+sha256(D) : aa2356b0d9098e8fc3cdfe63a07a83c85533d06ea6270abf50e5ef7dc60620f9
+sha512(D) : 760e5df6338ca1a3218fb9f7e5a2e9d20984c3c707f918feb1231c8715636100ff2d484972db370e46b4f8eaaf3294a95191ad6e9f7ebef2d4ffb5c7bef3a13a
+sha256(sha256(D)) : 08dbfcea88a9fc1b9a91ca40de59bb0f30e99285ff4f4019f6b4c9509043b00b
+ripemd160(D) : 64988b52845db1905cbf2530a9f60c666c8836f2
+ripemd160(sha256(D)): 200fbb165d5d9e31ad72ca7fa31618f5dfd4bfd7
+
+>py hashfunc.py
+input Data :
+0NUy6I6mt
+Data D : 0NUy6I6mt
+sha1(D) : 1b2bcdc9be8177f402475eb339123b1decbb0f2c
+sha256(D) : 41ccb2eebd8ddc2dea1264da2b2db76ee1903a673f5bfed938d36d3dedb708fc
+sha512(D) : b4d7bc0f5c99b8f3556cfc34b1521f4f2d059c7ce39c1e20cf5c3f0cebd16d343ba85cccf48ae8bedbd392a809e79c8208d2c818976090a4c03e46383928b351
+sha256(sha256(D)) : be35c863abfde7be6178d8fdcc784edc3696eb7d77e7d631d24ae16c53581db6
+ripemd160(D) : d3ed2aedcbe2ccbd5df7830cd450e67bd90880ab
+ripemd160(sha256(D)): 2acbed33d0ba1df1d883e635356a572c47157ff8
+
 # 2. 任意のデータ(D)をbase58checkでエンコーディングする。
 # デコードも行って、チェックサムが一致していることも確認する。
 
