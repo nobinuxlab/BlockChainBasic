@@ -46,20 +46,30 @@
 01111000 11101100
 
 * 2byte以上
-* 上記数字はいずれも2byteのみで表現可能なため2byteでOK
+* 上記数字はいずれも2byteのみで表現可能なため2byteでOK -> 16bit
 
 
 # exercise 2 mainnet
-
-not testnet, 実際のbitcoin mainnet
+#
+# NOT testnet, 実際のbitcoin mainnet
+# see https://blockchain.info/ja
+# https://chainflyer.bitflyer.jp/
 
 - どれかの取引ハッシュを計算して下さい。 *
 
+374a6346785a2d0535b4c3c8f2a2860aa3f2e4ca2d5fa4d52e8175a5faeb5d64
+
+https://blockchain.info/ja/tx/374a6346785a2d0535b4c3c8f2a2860aa3f2e4ca2d5fa4d52e8175a5faeb5d64?show_adv=true
+
 - どれかのブロックハッシュを計算して下さい。
 
+0000000000000000001335498fde325769233a9a63d68ee4ca07142a92017946
+
+ブロック #524140
+https://blockchain.info/ja/block/0000000000000000001335498fde325769233a9a63d68ee4ca07142a92017946
 
 # exercise 3 
-③「Blockchain Daigakko」という文字列の後に数字を文字列としてくっ付けて、ハッシュ値の頭に0x00バイトが1個あるまで数字を進めて下さい。その数値を教えて下さい。
+# ③「Blockchain Daigakko」という文字列の後に数字を文字列としてくっ付けて、ハッシュ値の頭に0x00バイトが1個あるまで数字を進めて下さい。その数値を教えて下さい。
 
 「Blockchain Daigakko1」,「Blockchain Daigakko2」,「Blockchain Daigakko3」, ...
 
@@ -76,6 +86,26 @@ hashlib.sha256(hashlib.sha256("Blockchain Daigakko4".encode()).digest())
 
 
 # exercise 4 
-SHA256(SHA256(取引))
+# SHA256(SHA256(取引))
+# マークル木
+# see https://blockchain.info/ja
+# https://chainflyer.bitflyer.jp/
+# https://bitcoinchain.com/block_explorer
 
+- ブロック高を教えて下さい(何番目のブロックか) *
 
+https://bitcoinchain.com/block_explorer/block/0000000000000000003880d5960c70e60244bff259b630ff09046d161598d1b5/
+
+523242
+
+- マークルルート1世代前のハッシュ一個目教えて下さい *
+
+Previous block	000000000000000000108dbef3676fe59b5c9e7584bd26f8b29fdf9b0d7f5af2
+-> https://bitcoinchain.com/block_explorer/block/000000000000000000108dbef3676fe59b5c9e7584bd26f8b29fdf9b0d7f5af2/
+
+Tx1:
+c452bd2cb187a4463370b67c3a5561f6f1bd3cbb744a8243de894cf6477bff83
+
+- マークルルート1世代前のハッシュ二個目教えて下さい *
+Tx2:
+a1a6f1dee467deae174081d0ba116c9298f5ff6ba855b3c4315b9e9c23b745e2
