@@ -1,26 +1,81 @@
+# to submit:
+# 第3回
+# https://docs.google.com/forms/d/e/1FAIpQLSeYgjDKlMyNSUbdFM5oPwr_dGRR7Qc-PE8oxO6sj7R0RTANlg/viewform?usp=sf_link
+#
 
-#1 
-①(0, 1, -1, 5, -5, 5000, -5000) これらの数字を下記のように表示して下さい。(2進で8つずつスペース入れる)
-①ビッグエンディアン　符号付き絶対値　②ビッグエンディアン　２の補数
-③リトルエンディアン　符号付き絶対値　④リトルエンディアン　２の補数
+# exercise 1
+# ①(0, 1, -1, 5, -5, 5000, -5000) これらの数字を下記のように表示して下さい。(2進で8つずつスペース入れる)
+# それぞれの数字を改行で分ける
+# use https://note.cman.jp/convert/bit/ (16bit)
 
-2byte以上
-上記数字はいずれも2byteのみで表現可能なため2byteでOK
+①ビッグエンディアン　符号付き絶対値 *
+00000000 00000000
+00000000 00000001
+10000000 00000001
+00000000 00000101
+10000000 00000101
+00010011 10001000
+10010011 10001000
+
+②ビッグエンディアン　２の補数 *
+00000000 00000000
+00000000 00000001
+11111111 11111111
+00000000 00000101
+11111111 11111011
+00010011 10001000
+11101100 01111000
 
 
-#2 mainnet
+③リトルエンディアン　符号付き絶対値 *
+00000000 00000000
+00000001 00000000
+00000001 10000000
+00000101 00000000
+00000101 10000000
+10001000 00010011
+10001000 10010011
+
+④リトルエンディアン　２の補数 *
+00000000 00000000
+00000001 00000000
+11111111 11111111
+00000101 00000000
+11111011 11111111
+10001000 00010011
+01111000 11101100
+
+* 2byte以上
+* 上記数字はいずれも2byteのみで表現可能なため2byteでOK
+
+
+# exercise 2 mainnet
 
 not testnet, 実際のbitcoin mainnet
 
+- どれかの取引ハッシュを計算して下さい。 *
 
-#3 
+- どれかのブロックハッシュを計算して下さい。
+
+
+# exercise 3 
 ③「Blockchain Daigakko」という文字列の後に数字を文字列としてくっ付けて、ハッシュ値の頭に0x00バイトが1個あるまで数字を進めて下さい。その数値を教えて下さい。
 
 「Blockchain Daigakko1」,「Blockchain Daigakko2」,「Blockchain Daigakko3」, ...
 
 * hashはSHA256でもSHA256(SHA256(D))でも何でも可能
 
-#4 
+- 「Blockchain Daigakko」の後につけると頭の1バイトが0x00になる数字を教えて下さい。 *
+
+
+import hashlib
+hashlib.sha256(hashlib.sha256("Blockchain Daigakko1".encode()).digest())
+hashlib.sha256(hashlib.sha256("Blockchain Daigakko2".encode()).digest())
+hashlib.sha256(hashlib.sha256("Blockchain Daigakko3".encode()).digest())
+hashlib.sha256(hashlib.sha256("Blockchain Daigakko4".encode()).digest())
+
+
+# exercise 4 
 SHA256(SHA256(取引))
 
 
