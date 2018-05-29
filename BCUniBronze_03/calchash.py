@@ -13,8 +13,8 @@ checkstring: str
 
 for value in data:
     checkstring = 'Blockchain Daigakko' + str(value)
-    # little endian
     hexdigest = sha256(sha256(checkstring.encode()).digest()).digest()
+    # convert to little endian
     lehexdigest = hexdigest[::-1].hex()
 
     if lehexdigest[0:2] == '00':
