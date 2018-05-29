@@ -78,12 +78,18 @@ https://blockchain.info/ja/block/0000000000000000001335498fde325769233a9a63d68ee
 - 「Blockchain Daigakko」の後につけると頭の1バイトが0x00になる数字を教えて下さい。 *
 
 
-import hashlib
-hashlib.sha256(hashlib.sha256("Blockchain Daigakko1".encode()).digest())
-hashlib.sha256(hashlib.sha256("Blockchain Daigakko2".encode()).digest())
-hashlib.sha256(hashlib.sha256("Blockchain Daigakko3".encode()).digest())
-hashlib.sha256(hashlib.sha256("Blockchain Daigakko4".encode()).digest())
-
+>py BCUniBronze_03\calchash.py
+78 : 0033f7f1d99841a69003c56f1f60500303ac922340fdb9a30ea03160ed1ceebd
+429 : 00d35f46aed0e0f43d8d6dfdaa9c603bcec44dcfe13521d1462ef9318055313a
+674 : 00e495a97f9d457db33d9ba7200923c5f378df174ff16b5061dd5c0888d7e189
+858 : 0015e95ace0586a61338c01afb420f10aeb4c3709508f80401779342047c8637
+1020 : 0050f52012b6035054da6f62d722f559782a5772a0025951f69fc2f1f3af9927
+1465 : 0018e2b115161ec0ae0a88ddf6b5c8a89837e09bd6beeb75e6014e06dc30a806
+1577 : 00bd2700579d8e8912357323c6f3d98291e73d511e64ef1aa1283c2251bcab4e
+1945 : 0076b74c4f95c0287139c1a97169e678ce428cd6739f6c0e413293ca8508edc3
+2825 : 001f520e2f8e0a64697fec027333282afcf8ff525244ffea13cb76a90de5b7d0
+...
+=> 78 is minimum number
 
 # exercise 4 
 # SHA256(SHA256(取引))
