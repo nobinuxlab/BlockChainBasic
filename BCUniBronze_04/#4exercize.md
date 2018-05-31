@@ -2,7 +2,7 @@
 
 ## submit
 
-    <https://docs.google.com/forms/d/e/1FAIpQLSdXeEUA5dUmPXmj1d2NetzrRN4hCGGd2Sa6GqR6Nyw1IndWGA/viewform?usp=sf_link>
+    https://docs.google.com/forms/d/e/1FAIpQLSdXeEUA5dUmPXmj1d2NetzrRN4hCGGd2Sa6GqR6Nyw1IndWGA/viewform?usp=sf_link
 
 ## Q-A
 
@@ -18,6 +18,8 @@
 
     - `OP_3 OP_4 SIG_1` / `OP_4 OP_3 SIG_1`
 
+  - initial(input) : X Y -> X+Y=7
+
 - OP_SUB OP_3 OP_EQUAL
 
   `OP_4 OP_1 SIG_1`
@@ -30,25 +32,27 @@
 
     - `OP_7 OP_4 SIG_1`
 
+  - initial(input) : X Y -> X-Y=3
+
 - OP_SWAP OP_4 OP_EQUAL OP_SWAP OP_7 OP_EQUAL OP_BOOLAND
 
   `OP_4 OP_7 SIG_1`
 
-  solution :
+  - solution :
 
     initial(input) : X Y
 
     \* scriptPubKey(output)の最初のオペランドOP_SWAPが2つの項目を扱うため
 
-    X Y OP_SWAP -> Y X
+    [X Y] OP_SWAP -> [Y X]
 
-    Y X = 4 -> Y (X=4) -> X=4 result is True(1) -> Y 1
+    [Y X] OP_4 OP_EQUAL -> [Y (X=4)] -> X=4 result is True(1) -> [Y 1]
 
-    Y 1 OP_SWAP -> 1 Y   ... (X=4) Y
+    [Y 1] OP_SWAP -> [1 Y]  \* あえて表現するならば [(X=4) Y]
 
-    1 Y = 7 -> (X=4) (Y=7) -> Y=7 result is True(1) -> 1 1
+    [1 Y] OP_7 OP_EQUAL -> [1 (Y=7)] -> Y=7 result is True(1) -> [1 1]
 
-    1 1 AND -> True x True = True : OK
+    [1 1] OP_BOOLAND -> True(1) x True(1) = True : OK
 
     /
 
@@ -56,7 +60,7 @@
 
   `OP_3 OP_1 OP_7 SIG_1`
 
-  solution :
+  - solution :
 
     initial(input) : X Y Z
 
@@ -80,8 +84,10 @@
 
     [1 1 X Y] OP_ADD -> [1 1 X+Y]
 
-    [1 1 1 X+Y] OP_4 OP_EQUAL -> [1 1 1 (X+Y=4)]  \* result (X+Y=4) is 1
+    [1 1 X+Y] OP_4 OP_EQUAL -> [1 1  (X+Y=4)]  \* result (X+Y=4) is 1
 
-    [1 1 1 1] OP_BOOLAND .. (skip)
+    [1 1 1] OP_BOOLAND OP_BOOLAND .. -> 1 AND (1 AND 1) -> True
 
     X+Y=4, X+Z=10, Y+Z=8 -> X=3, Y=1, Z=7
+
+/
