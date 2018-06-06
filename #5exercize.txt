@@ -1,0 +1,25 @@
+
+## BIP39に適応したフレーズを教えて下さい。
+
+see https://github.com/bitcoin/bips/tree/master/bip-0039
+
+e.g. https://github.com/bitcoin/bips/blob/master/bip-0039/japanese.txt
+
+
+あかちゃん
+ありがとう
+..
+
+## Attack Vector (攻撃ベクトル) - コンピュータまたはシステムへの侵入に使用される方法または経路。
+
+中間者攻撃のScenario
+
+1. SNSでbitcoin addressを公開
+
+2. 攻撃者がなりすましアカウントで偽のアドレスを公開
+
+3. 送金ユーザは、ハッシュ値であるため、公開されたアドレスが本人のものか区別がつかない、
+
+4. 送金ユーザが、誤って偽アドレス宛に送金してしまう
+
+
