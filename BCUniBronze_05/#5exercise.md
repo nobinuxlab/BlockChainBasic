@@ -17,11 +17,11 @@ e.g. https://github.com/bitcoin/bips/blob/master/bip-0039/japanese.txt
 ありがとう
 ..
 
-    - BIP39 Mnemonic (example answer)
+  - BIP39 Mnemonic (example answer)
 
 `おおや　たいほ　おんせん　ねぶそく　きゃく　じどう　いどう　ちわわ　りそく　はってん　まもる　きぶん　たいない　こんや　おどり`
 
-    - seed c121952cde151857e1bd06154738ecae2faf63ed1be665698ad457100c78a5ea650fcd71b1985fe4430867ceeeaed1f2544344699c68b50a94296ac6bc72887e
+  - seed c121952cde151857e1bd06154738ecae2faf63ed1be665698ad457100c78a5ea650fcd71b1985fe4430867ceeeaed1f2544344699c68b50a94296ac6bc72887e
 
 - そのフレーズから生成したシードをBIP32に入れて、 m/44’/0’/0’/0/0 のアドレスを教えて下さい。
 
@@ -69,12 +69,14 @@ e.g. https://github.com/bitcoin/bips/blob/master/bip-0039/japanese.txt
 
 e.g. 中間者攻撃のScenario
 
+中間者攻撃のシナリオとして以下のようなケースが考えられる。
+
 1. 本人がSNSでbitcoinアドレスを公開
 
 2. 一方で、攻撃者がなりすましアカウントで偽のアドレスを公開
 
 3. 送金ユーザは、公開されたアドレスが本人のものか区別がつかない。ハッシュ値を見ただけでは判別しにくいため
 
-4. 送金ユーザが、誤って偽アドレス宛に送金してしまう
+4. 3の結果、送金ユーザが誤って、攻撃者が公開した偽のアドレス宛に送金してしまう
 
-
+/
