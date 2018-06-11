@@ -1,5 +1,12 @@
-# exercise
-## BIP39に適応したフレーズを教えて下さい。
+# 第5回exercise
+
+## submit
+
+https://docs.google.com/forms/d/e/1FAIpQLSeYjvZvmGye26S9CIFmjCMHbqQfsn4r9tvHfTwJEl7_pOW0JQ/viewform
+
+## BIP39
+
+- BIP39に適応したフレーズを教えて下さい。
 
 see https://github.com/bitcoin/bips/tree/master/bip-0039
 
@@ -10,7 +17,17 @@ e.g. https://github.com/bitcoin/bips/blob/master/bip-0039/japanese.txt
 ありがとう
 ..
 
+- そのフレーズから生成したシードをBIP32に入れて、 m/44’/0’/0’/0/0 のアドレスを教えて下さい。
+
+## BIP44
+
+- BIP44のウォレットの3つ目のアカウントの25個目の非お釣りアドレスの派生の絶対パスを教えて下さい。
+
+- マルチシグウォレットにBIP44を使うと思い浮かぶ問題点を述べよ
+
 ## Attack Vector (攻撃ベクトル) - コンピュータまたはシステムへの侵入に使用される方法または経路。
+
+- BIP70のペイメントプロトコルを使わないサイトへの攻撃ベクトルを述べよ
 
 e.g. 中間者攻撃のScenario
 
