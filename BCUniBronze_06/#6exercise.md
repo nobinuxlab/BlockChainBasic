@@ -1,5 +1,13 @@
 # 第6回 exercise
 
+回答法：
+S=送信者  R=受信者  コロンの後にメッセージ名
+カンマで区切って下さい　繰り返しのやり取りは{ }で囲う
+
+例： {S:ping,R:pong} = S:ping,R:pong,S:ping,R:pong...
+
+前提：送信者は原始ブロックしか持っていない。あるノードのIPアドレスを知った。
+
 ## submit
 
 not prepared yet. see
@@ -12,16 +20,18 @@ not prepared yet. see
 
     <https://www.bitcoinbook.info/translations/ja/book.pdf>
 
-## 同期するまでのやりとり
+## 1. 同期するまでのメッセージ
+
+ノード(受信者)とどのメッセージのやり取りをすれば同期できるのか
 
 `S:version, R:verack, R:version, S:verack,
 {S:getblocks, R:inv, S:getdata, R:block}`
 
 ### reference
 
-- Mastering Blockchain : Figure 4. ピア同士の最初のハンドシェイク ~
+- Mastering Blockchain : Figure 4. ピア同士の最初のハンドシェイク ~, SPV Figure 6. ピアからブロックを取得することによってブロックチェーンと同期するノード
 
-## SPVモードで自分のウォレットと関係ある取引だけ同期したい場合
+## 2. SPVモードで自分のウォレットと関係ある取引だけ同期したい場合の同期法
 
 `S:version,R:verack,R:version,S:getheaders,R:headers,S:filterload,{S:getblocks,R:inv,S:getdata,R:merkleblock,R:tx}`
 
@@ -37,7 +47,11 @@ not prepared yet. see
 
 ### reference
 
-- Mastering Blockchain
+- Mastering Blockchain - above
 
 - filterload, filteradd, filterclear, merkleblock - Bitcoin wiki
     <https://en.bitcoin.it/wiki/Protocol_documentation#filterload.2C_filteradd.2C_filterclear.2C_merkleblock>
+
+## 3. 8個の取引のあるブロックのmerkleblockメッセージに含まれたフラグバイトは 0xDEA0 で2バイトです。左から1-8の番号振った場合、どの取引がマッチしたか。
+
+回答例：1,5,7,8
