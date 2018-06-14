@@ -1,9 +1,0 @@
-# ref
-
-<https://wakuwaku-currency.com/tech/bitcoin-p2p.html>
-
-
-## SPVモードで自分のウォレットと関係ある取引だけ同期したい場合
-
-ref : <https://wakuwaku-currency.com/tech/spv.html>
-
