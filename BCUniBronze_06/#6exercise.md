@@ -33,11 +33,13 @@ not prepared yet. see
 
 ## 2. SPVモードで自分のウォレットと関係ある取引だけ同期したい場合の同期法
 
-`S:version,R:verack,R:version,S:getheaders,R:headers,S:filterload,{S:getblocks,R:inv,S:getdata,R:merkleblock,R:tx}`
+`S:version,R:verack,R:version,S:verack,S:getheaders,R:headers,S:filterload,{S:getblocks,R:inv,S:getdata,R:merkleblock,R:tx}`
 
 - solution:
 
-    "Bloom Filters and Inventory Updates"の節によると、SPVで使用されるBloom Filter送信時の順序性は以下の通り
+  - invを取得する必要な情報を取捨選択するために一旦header情報のみ取得 -> getheaders
+  
+  - Mastering Blockchain "Bloom Filters and Inventory Updates"の節によると、SPVで使用されるBloom Filter送信時の順序性は以下の通り
 
     ```C
     S:filterload`
@@ -55,3 +57,11 @@ not prepared yet. see
 ## 3. 8個の取引のあるブロックのmerkleblockメッセージに含まれたフラグバイトは 0xDEA0 で2バイトです。左から1-8の番号振った場合、どの取引がマッチしたか。
 
 回答例：1,5,7,8
+
+- solution
+
+1. bit array : 0xDEA0 = b'1101 1110 1010 0000'
+
+    e.g. use bit conversion <https://note.cman.jp/convert/bit/> (16bit)
+
+2. ..
