@@ -29,6 +29,10 @@ not prepared yet. see
 
 ### reference
 
+- Bitcoin wiki
+
+    <https://en.bitcoin.it/wiki/Version_Handshake>
+
 - Mastering Blockchain : Figure 4. ピア同士の最初のハンドシェイク ~, SPV Figure 6. ピアからブロックを取得することによってブロックチェーンと同期するノード
 
 ## 2. SPVモードで自分のウォレットと関係ある取引だけ同期したい場合の同期法
@@ -65,3 +69,10 @@ not prepared yet. see
     e.g. use bit conversion <https://note.cman.jp/convert/bit/> (16bit)
 
 2. ..
+
+### reference
+
+- Parsing A MerkleBlock - developer examples
+
+<https://bitcoin.org/en/developer-examples#parsing-a-merkleblock>
+
