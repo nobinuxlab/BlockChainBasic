@@ -10,9 +10,7 @@ S=送信者  R=受信者  コロンの後にメッセージ名
 
 ## submit
 
-not prepared yet. see
-
-<https://drive.google.com/drive/folders/1zrZf9lTxiPJdGJd5WxaLdv6LSPVW6h2b>
+<https://docs.google.com/forms/d/e/1FAIpQLScoAc1_okqEU2xT7em8okJMQRM4Qre1an4I1OXDg_XPW6bsdQ/viewform>
 
 ### common reference
 
@@ -58,9 +56,9 @@ not prepared yet. see
 - filterload, filteradd, filterclear, merkleblock - Bitcoin wiki
     <https://en.bitcoin.it/wiki/Protocol_documentation#filterload.2C_filteradd.2C_filterclear.2C_merkleblock>
 
-## 3. 8個の取引のあるブロックのmerkleblockメッセージに含まれたフラグバイトは 0xDEA0 で2バイトです。左から1-8の番号振った場合、どの取引がマッチしたか。
+## 3. 8個の取引のあるブロックのmerkleblockメッセージに含まれたフラグバイトは 0xDEA0 で2バイトです。左から1-8の番号振った場合、どの取引がマッチしたか。    回答例：1,5,7,8
 
-回答例：1,5,7,8
+`3,4,8`
 
 - solution
 
@@ -68,7 +66,11 @@ not prepared yet. see
 
     e.g. use bit conversion <https://note.cman.jp/convert/bit/> (16bit)
 
-2. ..
+2. parse MerkleBlock as flag '1101 1110 1010 0000', Tx count:8 as below image
+
+    ![Parse MerkleBlock](exercise6-3_markletree.png)
+
+3. result : Tx3:1, Tx4:1, Tx8:1 (remain flag '0 0000')
 
 ### reference
 
@@ -76,3 +78,6 @@ not prepared yet. see
 
 <https://bitcoin.org/en/developer-examples#parsing-a-merkleblock>
 
+    - e.g. flag:10111000, Tx count:8
+![Example of Parsing A MerkleBlock](https://bitcoin.org/img/dev/animated-en-merkleblock-parsing.gif)
+[source]: <https://bitcoin.org/img/dev/animated-en-merkleblock-parsing.gif>
