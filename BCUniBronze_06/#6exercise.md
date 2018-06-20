@@ -25,6 +25,11 @@ S=送信者  R=受信者  コロンの後にメッセージ名
 `S:version, R:verack, R:version, S:verack,
 {S:getblocks, R:inv, S:getdata, R:block}`
 
+- after review (blockが多く返されることに対応)
+
+  `S:version, R:verack, R:version, S:verack,
+{S:getblocks, R:inv, S:getdata, {R:block}}`
+
 ### reference
 
 - Bitcoin wiki
@@ -36,6 +41,10 @@ S=送信者  R=受信者  コロンの後にメッセージ名
 ## 2. SPVモードで自分のウォレットと関係ある取引だけ同期したい場合の同期法
 
 `S:version,R:verack,R:version,S:verack,S:getheaders,R:headers,S:filterload,{S:getblocks,R:inv,S:getdata,R:merkleblock,R:tx}`
+
+- after review (getheaders-headers 500 block up繰り返される; && filterloadに対する応答は特にない)
+
+  `S:version,R:verack,R:version,S:verack,S:filterload,{S:getheaders,R:headers}{S:getdata,R:merkleblock,{R:tx}}`
 
 - solution:
 
