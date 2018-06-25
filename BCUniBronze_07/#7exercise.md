@@ -6,6 +6,13 @@
 
 ## ①testnetとregtestの二つのモードの違いを述べよ
 
+- answer:
+
+  いずれもテスト用の環境だが、TestnetがMainnet同様に他ユーザと共用のネットワークであるのに対して、Regtestは、blockchainネットワークそのものの構築から、プライベートなクローズド環境でテストできる、自動テスト用環境を構築できることが異なる。
+  また、Testnetについては、coinに価値が生じたら、再起動される。
+
+### detail from course memo:
+
 - Testnet
 
   -> coinに価値が生じたら、再起動
@@ -34,7 +41,7 @@
 
 <http://chainquery.com/>でgetnetworkinfoコマンドを実行
 
- ![result of getnetworkinfo (getnetworkinfo_25thJune2018.txt)](getnetworkinfo_25thJune2018.txt)
+  [(FYI) result of getnetworkinfo](./getnetworkinfo_25thJune2018.txt)
 
 - solution : getnetworkinfoコマンドを使用、relayfee以外にも以下確認可能
 
@@ -53,13 +60,13 @@
   - address
 
   ```c
-  2N7ixyfRLcqDAjJSUx7qRAqqUQtM2qPPyyW
+  muTeGjvKaEA26wJfQX9wzKyEs54sYGTFpH
   ```
 
   - message signed
 
   ```c
-  xxxxxxxxxxxxx
+  HzFlPM5+Ek/KGl0RH1VHwCqACUewtFKCKvd0NZN/mJetCwIkfpZncjwmVdNvdQtjyVEiuqyFGFft/wAkn6Z7LT4=
   ```
 
 - solution
@@ -73,7 +80,7 @@
 
 2. daemon 起動
 
-- bitcoin.conf
+- bitcoin.conf (rpcuser, rpcpassword are depend on individual environment/user)
 
 ```conf
 testnet = 3
@@ -88,6 +95,8 @@ rpcport = 18332
 
 windows の場合、%AppData%\Roaming\Bitcoin\bitcoin.conf に保存
 
+Linux の場合は ~/.bitcoin/bitcoin.conf
+
 $ bitcoind -testnet -daemon
 
 * windows 10で実行時は以下のようにエラーとなるためdaemonオプション指定なしに
@@ -99,17 +108,20 @@ $ bitcoind -testnet -daemon
 
 3. コマンド実行
 
-Windowsの場合には、別のコマンドプロンプトを起動して
+    Windowsの場合には、別のコマンドプロンプトを起動して以下を実行
 
 ```c
-> bitcoin-cli -testnet getnetworkinfo
+> bitcoin-cli -testnet getnewaddress "nobutanaka" legacy
+muTeGjvKaEA26wJfQX9wzKyEs54sYGTFpH
 ```
 
-```c
-> bitcoin-cli -testnet getnewaddress
-2N7ixyfRLcqDAjJSUx7qRAqqUQtM2qPPyyW
-```
+  Note:
+
+- label(account) is accepptable "" instead of above
+
+- **legacy option is mandetory** to convert (default) segwit addresses because signmessage doesn't work with segwit addresses as of Bitcoin Core version 0.16~0.14
 
 ```c
-> bitcoin-cli -testnet signmessage "2N7ixyfRLcqDAjJSUx7qRAqqUQtM2qPPyyW" "Blockchain Daigakko"
+> bitcoin-cli -testnet signmessage signmessage muTeGjvKaEA26wJfQX9wzKyEs54sYGTFpH \
+> 'Blockchain Daigakko'
 ```
