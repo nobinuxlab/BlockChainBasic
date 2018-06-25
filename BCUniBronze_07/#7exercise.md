@@ -99,8 +99,9 @@ Linux の場合は ~/.bitcoin/bitcoin.conf
 
 $ bitcoind -testnet -daemon
 
-* windows 10で実行時は以下のようにエラーとなるためdaemonオプション指定なしに
-`Error: -daemon is not supported on this operating system`
+* windows 10で実行時は以下エラーとなるためdaemonオプション指定なしに
+
+  `Error: -daemon is not supported on this operating system`
 
 ```c
 > bitcoind -testnet
@@ -122,6 +123,6 @@ muTeGjvKaEA26wJfQX9wzKyEs54sYGTFpH
 - **legacy option is mandetory** to convert (default) segwit addresses because signmessage doesn't work with segwit addresses as of Bitcoin Core version 0.16~0.14
 
 ```c
-> bitcoin-cli -testnet signmessage signmessage muTeGjvKaEA26wJfQX9wzKyEs54sYGTFpH \
+> bitcoin-cli -testnet signmessage muTeGjvKaEA26wJfQX9wzKyEs54sYGTFpH \
 > 'Blockchain Daigakko'
 ```
