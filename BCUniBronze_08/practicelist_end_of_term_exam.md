@@ -119,7 +119,7 @@ varintでは「00」も「fd 00 00」も「fe 00 00 00 00」いずれも10進ゼ
 
 - DER 署名 : [h][l][rh][rl][r][sh][sl][s]
 
-## #3 P
+## #3 Page 24,27,42,43
 
 - ブロックヘッダ(Page 42) : [version][prevblockhash][merkleroot][time][bits][nonce]
 
@@ -285,13 +285,13 @@ BIP 44: 単一署名対応のためmultisigに不向き、だから複数人の�
 
 ⇒ しかし、実際にはあまり使われていない
 
-## #5 Page ~ BIP 70
+## #5 Page 38,39~ BIP 70
 
 - 目的：
 
   取引先の本人確認をサポート：アドレスのハッシュ値をユーザ間で直接指定だと、第三者が査証したアドレスに送ってしまうリスク、中間者攻撃を抑止
 
-- 流れ：payment URI、payment request、payment ack 三部構成
+- 流れ：payment request、payment、payment ack 三部構成
 
 1. **payment URI**のなかで ユーザーにペイメントリクエストがあることをr属性の中のURLにて知らせる
 
@@ -299,7 +299,7 @@ BIP 44: 単一署名対応のためmultisigに不向き、だから複数人の�
 
 3. ウォレットソフトがリクエストについている署名を検証する
 
-4. 支払いに許諾するなら、paymentをお店に直接送信
+4. 支払いに許諾するなら、**payment**をお店に直接送信
 
   →お店は **payment ack**の返事を行う
 
